@@ -9,7 +9,7 @@ import io.reactivex.Flowable
 @Dao
 interface TrackDao : BaseDao<Track> {
     @Query("SELECT * FROM track")
-    fun getAll() : Flowable<Track>
+    fun getAll() : Flowable<List<Track>>
 
     @Query("DELETE FROM track")
     fun delete()
