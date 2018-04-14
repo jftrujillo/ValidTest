@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion 26
+
+    dataBinding {
+        enabled true
+    }
+
+    defaultConfig {
+        applicationId "com.rhodar.mobile.codescrum.validtest"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$support_version"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    implementation "org.jetbrains.anko:anko-design:$anko_version"
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.12'
+
+    //RxBinding
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+
+    //Support Design
+    implementation "com.android.support:design:$support_version"
+
+    //RecyclerView
+    implementation "com.android.support:recyclerview-v7:$support_version"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+
+    implementation "android.arch.persistence.room:runtime:$android_arch_version"
+    kapt "android.arch.persistence.room:compiler:$android_arch_version"
+    implementation "android.arch.persistence.room:rxjava2:$android_arch_version"
+
+    implementation "org.jetbrains.anko:anko-coroutines:$anko_version"
+
+    implementation "android.arch.lifecycle:extensions:$android_arch_version"
+    kapt "android.arch.lifecycle:compiler:$android_arch_version"
+
+    kapt "com.android.databinding:compiler:3.1.0"
+    implementation 'org.jetbrains.anko:anko-appcompat-v7-commons:0.10.3'
+
+}
