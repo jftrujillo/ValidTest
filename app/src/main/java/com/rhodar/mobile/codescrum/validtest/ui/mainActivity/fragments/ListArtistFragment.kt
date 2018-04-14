@@ -9,19 +9,17 @@ import android.view.ViewGroup
 import com.rhodar.mobile.codescrum.validtest.App
 import com.rhodar.mobile.codescrum.validtest.R
 import com.rhodar.mobile.codescrum.validtest.Util.addDivider
-import com.rhodar.mobile.codescrum.validtest.ui.adapters.TrackElementAdapter
+import com.rhodar.mobile.codescrum.validtest.ui.adapters.ArtistElementAdapter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.list_item_fragment.*
 
-class ListTrackFragment : Fragment() {
-    val adapter = TrackElementAdapter()
-    private lateinit var dis : CompositeDisposable
+class ListArtistFragment : Fragment() {
+    val adapter = ArtistElementAdapter()
+    private lateinit var dis: CompositeDisposable
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater!!.inflate(R.layout.list_item_fragment, container, false)
     }
 
@@ -37,13 +35,13 @@ class ListTrackFragment : Fragment() {
     }
 
     private fun loadItems() {
-        dis.add(App.db.trackDao().getAll()
+        dis.add(App.db.artistDao().getAll()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     adapter.data = it
-                },{it.printStackTrace()})
-                )
+                }, { it.printStackTrace() })
+        )
     }
 
     override fun onDestroy() {
@@ -51,3 +49,4 @@ class ListTrackFragment : Fragment() {
         dis.dispose()
     }
 }
+

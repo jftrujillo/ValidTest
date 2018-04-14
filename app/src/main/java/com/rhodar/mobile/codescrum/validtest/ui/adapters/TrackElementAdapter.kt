@@ -9,29 +9,29 @@ import com.rhodar.mobile.codescrum.validtest.R
 import com.rhodar.mobile.codescrum.validtest.data.db.entities.Track
 import com.rhodar.mobile.codescrum.validtest.databinding.TrackElementTemplateBinding
 
-class TrackElementAdapter : RecyclerView.Adapter<ElementHolder>() {
+class TrackElementAdapter : RecyclerView.Adapter<TrackHolder>() {
     var data: List<Track> = emptyList()
     set(value){
         field =value
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ElementHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrackHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.track_element_template,
                 parent, false)
-        return ElementHolder(view)
+        return TrackHolder(view)
     }
     override fun getItemCount(): Int {
         return data.size
     }
 
-    override fun onBindViewHolder(holder: ElementHolder, position: Int) {
+    override fun onBindViewHolder(holder: TrackHolder, position: Int) {
         holder.binding.track = data[position]
     }
 
 }
 
-class ElementHolder(view : View) : RecyclerView.ViewHolder(view) {
+class TrackHolder(view : View) : RecyclerView.ViewHolder(view) {
     val binding: TrackElementTemplateBinding = DataBindingUtil.bind(view)!!
 
 }

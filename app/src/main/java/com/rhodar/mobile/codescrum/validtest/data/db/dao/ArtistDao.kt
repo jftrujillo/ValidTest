@@ -9,7 +9,7 @@ import io.reactivex.Flowable
 interface ArtistDao : BaseDao<Artist> {
 
     @Query("SELECT * FROM artist ")
-    fun getAll(): Flowable<Artist>
+    fun getAll(): Flowable<List<Artist>>
 
     @Query("DELETE FROM artist")
     fun delete()
