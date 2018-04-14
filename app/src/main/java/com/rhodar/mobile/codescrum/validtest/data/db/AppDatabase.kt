@@ -12,6 +12,6 @@ import com.rhodar.mobile.codescrum.validtest.data.db.entities.Track
 @Database(entities = [Artist::class,Track::class], version = 2)
 abstract class  AppDatabase : RoomDatabase(){
     abstract fun artistDao() : ArtistDao
-    abstract fun TrackDao() : TrackDao
+    abstract fun trackDao() : TrackDao
 
 }

@@ -11,4 +11,7 @@ interface ArtistDao : BaseDao<Artist> {
     @Query("SELECT * FROM artist ")
     fun getAll(): Flowable<Artist>
 
+    @Query("DELETE FROM artist")
+    fun delete()
+
 }

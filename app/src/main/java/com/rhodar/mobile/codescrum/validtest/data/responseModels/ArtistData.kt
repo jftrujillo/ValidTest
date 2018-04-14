@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ArtistData (
         val name: String,
-        val listeners : Int,
+        val listeners : Long,
         val mbid: String,
         val url : String,
         val streamable : Int,

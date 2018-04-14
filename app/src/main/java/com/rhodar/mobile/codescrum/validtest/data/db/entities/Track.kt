@@ -21,5 +21,5 @@ data class Track(
         val imageUrl : String?
 ){
     @PrimaryKey(autoGenerate = true)
-    val id: Long = 0
+    var id: Long = 0
 }

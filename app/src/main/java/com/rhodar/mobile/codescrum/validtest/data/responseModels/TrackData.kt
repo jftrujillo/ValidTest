@@ -6,7 +6,7 @@ import java.time.Duration
 
 data class TrackData(
         val name: String,
-        val duration: Int,
+        val duration: String,
         val listeners: Long,
         val url: String,
         val artist : ArtistData,
